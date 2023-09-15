@@ -1,0 +1,111 @@
+<!-- <h2>Logistic List</h2>
+<button (click)="saveChanges()" type="button">saveChanges
+
+</button>
+<table>
+    <thead>
+        <tr>
+            <th>Select</th>
+            <th>Logistic Description</th>
+            <th>Date</th>
+            <th>totalCost</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let affect of affectedList">
+        <tr>
+           
+        <td>
+            <div>
+                <input type="radio" name="id" [value]="affect.id" [(ngModel)]="idLogistic">
+              </div>
+        </td>
+                <td>
+                    <div>
+                        {{affect.commentaire}}
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        {{affect.datelogistic}}
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        {{affect.totalCost}}
+                    </div>
+                </td>
+            
+        </tr>
+    </tbody>
+</table> -->
+
+<div class="app__slide-wrapper">
+    <div class="breadcrumb__area">
+       <div class="breadcrumb__wrapper mb-35">
+          <div class="breadcrumb__main">
+             <div class="breadcrumb__inner">
+                <div class="breadcrumb__icon">
+                   <i class="flaticon-home"></i>
+                </div>
+                <div class="breadcrumb__menu">
+                   <nav>
+                      <ul>
+                         <li><span><a href="dashboard.html">Home</a></span></li>
+                         <li class="active"><a>Affected List</a></li>
+                      </ul>
+                   </nav>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="event__list-area pb-20">
+       <div class="event__content-inner">
+          <div class="tab-content" id="myTabContent">
+             <div class="tab-pane fade show active" id="day-tab-1-pane" role="tabpanel" aria-labelledby="day-tab-1"
+                tabindex="0">
+                <div class="body__card-wrapper"> 
+                   <div class="attendant__wrapper mb-35">
+                    <button class="btn btn-success" (click)="saveChanges()" type="button">Affected</button>
+                      <table>
+                         <thead>
+                            <tr>
+                                <th>Action</th>
+                               <th>Description</th>
+                               <th>Date</th>
+                               <th>Total Cost</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr *ngFor="let affect of affectedList">
+                               
+                            <td>
+                                <div>
+                                    <input type="radio" name="id" [value]="affect.id" [(ngModel)]="idLogistic">
+                                  </div>
+                            </td>
+                                    <td>
+                                        <div>
+                                            {{affect.commentaire}}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            {{affect.datelogistic}}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            {{affect.totalCost}}
+                                        </div>
+                                    </td>
+                            </tr>
+                        </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

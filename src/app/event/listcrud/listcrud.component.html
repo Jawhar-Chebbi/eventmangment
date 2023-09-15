@@ -1,0 +1,154 @@
+<div class="app__slide-wrapper">
+   <div class="breadcrumb__area">
+      <div class="breadcrumb__wrapper mb-35">
+         <div class="breadcrumb__main">
+            <div class="breadcrumb__inner">
+               <div class="breadcrumb__icon">
+                  <i class="flaticon-home"></i>
+               </div>
+               <div class="breadcrumb__menu">
+                  <nav>
+                     <ul>
+                        <li><span><a href="dashboard.html">Home</a></span></li>
+                        <li class="active"><span>Event List</span></li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+            <div class="breadcrum__button">
+               <a class="breadcrum__btn event__popup-active" routerLink="../add">Create Event</a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="event__list-area pb-20">
+      <div class="event__content-inner">
+            <div class="tab-pane fade show active" id="day-tab-1-pane" role="tabpanel" aria-labelledby="day-tab-1"
+               tabindex="0">
+               <div class="body__card-wrapper">
+                  <h4 class="event__information-title mb-25">Event Information</h4>
+                  <div class="attendant__wrapper mb-35">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-6">
+                              <form>
+                                 Status
+                                 <div class="container">
+                                    <div>
+                                       <div> <input value="PLANIFIE" type="checkbox" (change)="updateSelectedStatus($event)">
+                                          <label>PLANNED</label>
+                                       </div>
+                                    </div>
+                                    <div> <input value="ANNULE" type="checkbox" (change)="updateSelectedStatus($event)">
+                                       <label>CANCELED</label>
+                                    </div>
+                                    <div> <input value="REPORTE" type="checkbox" (change)="updateSelectedStatus($event)">
+                                       <label>POSTPONED</label>
+                                    </div>
+                                    <div> <input value="ENCOURS" type="checkbox" (change)="updateSelectedStatus($event)">
+                                       <label>IN PROGRESS</label>
+                                    </div>
+                                    <div> <input value="TERMINE" type="checkbox" (change)="updateSelectedStatus($event)">
+                                       <label>ENDED</label>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                           <div class="col-6">
+                              Category<br>
+                              <div class="container">
+                                 <select (change)="selectCategory($event)">
+                                    <option value="">Select Category</option>
+                                    <option value="HEALTH">HEALTH</option>
+                                    <option value="TECHNOLOGY">TECHNOLOGY</option>
+                                    <option value="BUSINESS">BUSINESS</option>
+                                    <option value="CHARITY">CHARITY</option>
+                                    <option value="FASHION">FASHION</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+
+                     <table>
+                        <thead>
+                           <tr>
+                              <th>Organiser</th>
+                              <th>Event Name</th>
+                              <th>Start / End </th>
+                              <th>Deadline</th>
+                              <th>Location</th>
+                              <th>Status</th>
+                              <th>Ticket Price</th>
+                              <th>Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let list of lists">
+                              <td>
+                                 <div class="registration__user-thumb">
+                                    <img src="" alt=" ">
+                                 </div>
+                                 <div class="attendant__user-title">
+                                    <span>{{list.organiser}}</span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="attendant__seminer">
+                                    <span><button
+                                          routerLink="../details/{{list.id}}">{{list.eventTitle}}</button></span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="attendant__date">
+                                    <span>{{list.dateEvent}} /<br>{{list.dateFinEvent}}</span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="attendant__date">
+                                    <span>{{list.deadLine}}</span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="attendant__location">
+                                    <span>{{list.adressEvent}}</span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="attendant__status">
+                                    <span *ngIf="list.status == 'PLANIFIE'" class="status__tag bg-green">PLANNED</span>
+                                    <span *ngIf="list.status == 'ANNULE'" class="status__tag bg-warn">CANCELED</span>
+                                    <span *ngIf="list.status == 'REPORTE'"
+                                       class="status__tag warning-bg">POSTPONED</span>
+                                    <span *ngIf="list.status == 'ENCOURS'" class="status__tag teal-bg">IN
+                                       PROGRESS</span>
+                                    <span *ngIf="list.status == 'TERMINE'" class="status__tag bg-warn">ENDED</span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="attendant__Ticket">
+                                    <span>{{list.ticketPrice}}</span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="attendant__action">
+                                    <div style="display: flex;justify-content: center;">
+                                       <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Delete-button.svg/862px-Delete-button.svg.png"
+                                          alt="noimage" style="width: 1.4rem;height: 1.7rem;cursor: pointer;" (click)="deleteEvent(list.id)"></div>
+                                       <div class="2rem"><img src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color/254000/52-512.png"
+                                          alt="noimage" style="width: 1.4rem;height: 1.7rem;cursor: pointer;" routerLink="../update/{{list.id}}"></div>
+                                       <div class="2rem"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1N1By1ECqTbcfs7Bgeg9tgv30j_tlY89R1g&usqp=CAU"
+                                          alt="noimage" style="width: 1.4rem;height: 1.7rem;cursor: pointer;" routerLink="../../logistic/affecterEvent/{{list.id}}"></div>
+                                     </div>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>

@@ -1,0 +1,51 @@
+ <div class="app__slide-wrapper">
+    <div class="breadcrumb__area">
+        <div class="breadcrumb__wrapper mb-35">
+            <div class="breadcrumb__main">
+                <div class="breadcrumb__inner">
+                    <div class="breadcrumb__icon">
+                        <i class="flaticon-home"></i>
+                    </div>
+                    <div class="breadcrumb__menu">
+                        <nav>
+                            <ul>
+                                <li><span><a href="dashboard.html">Logistics</a></span></li>
+                                <li class="active"><span>Update Details</span></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xxl-12">
+            <div class="create__event-area">
+                <div class="body__card-wrapper">
+                    <div class="card__header-top">
+                        <div class="card__title-inner">
+                            <h4 class="event__information-title">LogDetails: Passes and Accessibility</h4>
+                        </div>
+                    </div>
+                    <form class="create__event-main pt-25" [formGroup]="form" (submit)="onSubmit()">
+                        <div class="event__right-box">
+                            <div class="create__input-wrapper">
+                                <div action="#">
+                                    <div class="singel__input-field mb-15">
+                                        <label class="input__field-text">Event Passes</label>
+                                        <input type="text" formControlName="libele">
+                                    </div>
+                                    <div class="singel__input-field mb-15">
+                                        <label class="input__field-text">Cost (USD)</label>
+                                        <input type="text" formControlName="cost">
+                                    </div>
+                                    <button class="input__btn w-100" type="submit">Update this Pass</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

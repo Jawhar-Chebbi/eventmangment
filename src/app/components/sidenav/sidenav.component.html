@@ -1,0 +1,59 @@
+<div class="expovent__sidebar" data-background="assets/img/bg/dropdown-bg.png" style="background-image: url(&quot;assets/img/bg/dropdown-bg.png&quot;);">
+    <div class="logo-details">
+       <span>
+          <a href="dashboard.html">
+             <img class="logo__white" src="assets/img/logo/logo-small.svg" alt="logo not found">
+          </a>
+       </span>
+       <span>
+          <a href="dashboard.html">
+             <img class="log__smnall" src="assets/img/logo/logo.svg" alt="logo not found">
+          </a>
+       </span>
+    </div>
+    <div class="sidebar__inner simple-bar">
+       <div class="dlabnav">
+          <ul class="metismenu" id="menu">
+             <li *ngIf="isAdmin"><a [routerLink]="['/user/dashboard']" aria-expanded="false">
+                   <i class="flaticon-home"></i>
+                   <span class="nav-text">Dashboard</span>
+                </a>
+             </li>
+              <li><a [routerLink]="['/event/list']" aria-expanded="false">
+                  <i class="flaticon-clock"></i>
+                  <span class="nav-text">Scheduled events</span>
+                </a>
+              </li>
+             <li *ngIf="isAdmin"><a [routerLink]="['/user/user-list']"  aria-expanded="false">
+                   <i class="flaticon-speaker"></i>
+                   <span class="nav-text">User List</span>
+                </a>
+             </li>
+             <li *ngIf="isAdmin || isOrganiser"><a [routerLink]="['/event/listcrud']" aria-expanded="false">
+                   <i class="flaticon-calendar-1"></i>
+                   <span class="nav-text">Event List</span>
+                </a>
+             </li>
+              <li *ngIf="isAdmin || isOrganiser"><a [routerLink]="['/logistic/list']" aria-expanded="false">
+                   <i class="flaticon-ticket-1"></i>
+                   <span class="nav-text">Logistic List</span>
+                </a>
+             </li>
+              <li *ngIf="isAdmin || isOrganiser"><a [routerLink]="['/logisticdetails/list']" aria-expanded="false">
+                  <i class="flaticon-ticket-1"></i>
+                  <span class="nav-text">Logistic Details list</span>
+                </a>
+              </li>
+          </ul>
+          <div class="sidebar__thumb mb-60 mt-100">
+
+          </div>
+          <div class="sidebar__profile mb-50">
+             <a [routerLink]="['/login']"><i class="flaticon-log-out-3"></i><span class="links_name">Log out</span></a>
+          </div>
+          <div class="sidebar__copyright">
+             <p>Copyright @ Expovent 2023</p>
+          </div>
+       </div>
+    </div>
+ </div>

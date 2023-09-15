@@ -1,0 +1,104 @@
+<div class="app__slide-wrapper">
+   <div class="breadcrumb__area">
+      <div class="breadcrumb__wrapper mb-35">
+         <div class="breadcrumb__main">
+            <div class="breadcrumb__inner">
+               <div class="breadcrumb__icon">
+                  <i class="flaticon-home"></i>
+               </div>
+               <div class="breadcrumb__menu">
+                  <nav>
+                     <ul>
+                        <li><span><a href="dashboard.html">Home</a></span></li>
+                        <li class="active"><span>Details List</span></li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+            <div class="breadcrum__button">
+               <a class="breadcrum__btn event__popup-active" [routerLink]="'../add'">Detail<i
+                     class="fa-regular fa-plus"></i></a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="event__list-area pb-20">
+      <div class="event__content-inner">
+         <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="day-tab-1-pane" role="tabpanel" aria-labelledby="day-tab-1"
+               tabindex="0">
+               <div class="body__card-wrapper">
+                  <h4 class="event__information-title mb-25">Details Information</h4>
+
+                  <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6">
+                     <div class="expovent__count-item mb-20">
+                        <div class="expovent__count-thumb include__bg transition-3"
+                           data-background="assets/img/bg/count-bg.png"
+                           style="background-image: url(&quot;assets/img/bg/count-bg.png&quot;);"></div>
+                        <div class="expovent__count-content" class="text-center">
+                           <span class="expovent__count-text" class="text-center"> Total Cost </span>
+                           <h3 class="expovent__count-number" class="text-center">{{ calculateTotality() }}</h3>
+
+                        </div>
+
+                     </div>
+                     <!-- <div>
+                        <button (click)="performActionOnSelected()">throw details to logistic</button>
+
+                     </div> -->
+                  </div>
+
+                  <div class="attendant__wrapper mb-35">
+                     <table>
+                        <thead>
+                           <tr>
+                              <th class="text-center">Select</th>
+                              <th class="text-center">ID No</th>
+                              <th class="text-center">Passes</th>
+                              <th class="text-center">Cost</th>
+                              <th class="text-center">Number of Grantees</th>
+                              <th class="text-center">Edit</th>
+                              <th class="text-center">Delete</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let list of lists">
+                              <td class="text-center">
+                                 <input type="checkbox" [(ngModel)]="list.selected">
+                              </td>
+                              <td class="text-center">
+                                 <div class="attendant__serial">
+                                    <span>{{ list.id }}</span>
+                                 </div>
+                              </td>
+                              <td class="text-center">
+                                 {{ list.libele }}
+                              </td>
+                              <td class="text-center">
+                                 {{ list.cost }}
+                              </td>
+                              <td class="text-center">
+                                 {{ list.participants }}
+                              </td>
+
+                              <td class="text-center">
+                                 <button type="button" class="btn btn-primary"
+                                    routerLink="../update/{{list.id}}">edit</button>
+                              </td>
+                              <td class="text-center">
+                                 <button type="button" class="btn btn-danger"
+                                    (click)="deleteLogisticsDetails(list.id)">delete</button>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Inclusion de backtotop.js -->
+<script src="chemin/vers/backtotop.js"></script>

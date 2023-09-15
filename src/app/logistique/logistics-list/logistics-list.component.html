@@ -1,0 +1,177 @@
+<div class="app__slide-wrapper">
+   <div class="breadcrumb__area">
+      <div class="breadcrumb__wrapper mb-35">
+         <div class="breadcrumb__main">
+            <div class="breadcrumb__inner">
+               <div class="breadcrumb__icon">
+                  <i class="flaticon-home"></i>
+               </div>
+               <div class="breadcrumb__menu">
+                  <nav>
+                     <ul>
+                        <li><span><a href="dashboard.html">Home</a></span></li>
+                        <li class="active"><a [routerLink]="['/logistic/list']">Logistic List</a></li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+
+
+
+
+            <div class="breadcrum__button">
+               <a class="breadcrum__btn event__popup-active" [routerLink]="['/logistic/add']">Create Logistic<i
+                     class="fa-regular fa-plus"></i></a>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+
+
+
+
+   <div class="event__list-area pb-20">
+      <div class="event__content-inner">
+         <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="day-tab-1-pane" role="tabpanel" aria-labelledby="day-tab-1"
+               tabindex="0">
+               <div class="body__card-wrapper">
+                  <h4 class="event__information-title mb-25">Available Logistics : </h4>
+
+
+                  <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                     <form style="display: flex; align-items: center;">
+
+                        <label for="startDate"
+                           style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
+                           Look in this area
+                        </label>
+                        <!-- <input type="date"
+                         style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;"
+                         name="startDate" [(ngModel)]="startDate" id="startDate" placeholder="Start Date">
+                       <input type="date"
+                         style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;"
+                         name="endDate" [(ngModel)]="endDate" id="endDate" placeholder="End Date"> -->
+                        <input type="date"
+                           style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;"
+                           name="startDate" [(ngModel)]="startDate" id="startDate" placeholder="Start Date">
+
+                        <input type="date"
+                           style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;"
+                           name="endDate" [(ngModel)]="endDate" id="endDate" placeholder="End Date">
+
+
+                        <button type="submit"
+                           style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;"
+                           (click)="searchByDateRange()">
+                           Search
+                        </button>
+                     </form>
+                  </div>
+                  <div class="attendant__wrapper mb-35">
+                     <table>
+                        <thead>
+                           <tr>
+                              <th>Description</th>
+                              <th>Date</th>
+                              <th>Total Cost</th>
+                              <th>Edit</th>
+                              <th>Delete</th>
+                              <!-- <th>Affect</th> -->
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <!-- <tr *ngFor="let list of sortedLists"> -->
+                           <tr *ngFor="let list of pagedLists">
+
+                              <td>
+                                 {{ list.commentaire }}
+                              </td>
+                              <td>
+                                 {{ list.datelogistic }}
+                              </td>
+                              <td>
+                                 <div class="attendant__date">
+                                    <span>{{ list.totalCost }}</span>
+                                 </div>
+                              </td>
+                              <td>
+                                 <button type="button" class="btn btn-primary"
+                                    routerLink="../update/{{list.id}}">edit</button>
+                              </td>
+                              <td>
+                                 <button type="button" class="btn btn-danger"
+                                    (click)="deleteLogistics(list.id)">delete</button>
+                              </td>
+
+                           </tr>
+                        </tbody>
+                     </table>
+                     <!-- Custom Pagination -->
+                     <div class="custom-pagination d-flex justify-content-center">
+                        <button class="pagination-button" [disabled]="currentPage === 1" (click)="prevPage()">
+                           &larr; Prev
+                        </button>
+                        <div class="pagination-current-page mx-4">
+                           Page {{ currentPage }}
+                        </div>
+                        <button class="pagination-button" [disabled]="currentPage === totalPages" (click)="nextPage()">
+                           Next &rarr;
+                        </button>
+                     </div>
+
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <h4> Top Logistics</h4>
+   <div  *ngFor="let pot of topLogistics"style="display: flex; align-items: center;">
+      <svg id="SvgjsSvg1457" width="447" height="178.7" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;">
+         <g id="SvgjsG1459" class="apexcharts-inner apexcharts-graphical" transform="translate(136.5, 0)">
+            <defs id="SvgjsDefs1458">
+               <clipPath id="gridRectMask7kjcloab">
+                  <rect id="SvgjsRect1461" width="182" height="200" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect>
+               </clipPath>
+               <clipPath id="forecastMask7kjcloab"></clipPath>
+               <clipPath id="nonForecastMask7kjcloab"></clipPath>
+               <clipPath id="gridRectMarkerMask7kjcloab">
+                  <rect id="SvgjsRect1462" width="180" height="202" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect>
+               </clipPath>
+               <linearGradient id="SvgjsLinearGradient1467" x1="1" y1="0" x2="0" y2="1">
+                  <stop id="SvgjsStop1468" stop-opacity="1" stop-color="#fa631e" offset="0.2"></stop>
+                  <stop id="SvgjsStop1469" stop-opacity="1" stop-color="#ffad01" offset="0.6"></stop>
+               </linearGradient>
+               <linearGradient id="SvgjsLinearGradient1477" x1="1" y1="0" x2="0" y2="1">
+                  <stop id="SvgjsStop1478" stop-opacity="1" stop-color="#fa631e" offset="0.2"></stop>
+                  <stop id="SvgjsStop1479" stop-opacity="1" stop-color="#ffad01" offset="0.6"></stop>
+               </linearGradient>
+            </defs>
+            <g id="SvgjsG1463" class="apexcharts-radialbar">
+               <g id="SvgjsG1464">
+                  <g id="SvgjsG1465" class="apexcharts-tracks">
+                     <g id="SvgjsG1466" class="apexcharts-radialbar-track apexcharts-track" rel="1">
+                        <path id="apexcharts-radialbarTrack-0" d="M 88 20.61890243902438 A 67.38109756097562 67.38109756097562 0 1 1 87.98823977999923 20.61890346529718" fill="none" fill-opacity="1" stroke="rgba(255, 163, 0, 0.06)" stroke-opacity="1" stroke-linecap="round" stroke-width="2.9890243902439027" stroke-dasharray="0" class="apexcharts-radialbar-area" data:pathOrig="M 88 20.61890243902438 A 67.38109756097562 67.38109756097562 0 1 1 87.98823977999923 20.61890346529718"></path>
+                     </g>
+                  </g>
+                  <g id="SvgjsG1471">
+                     <g id="SvgjsG1476" class="apexcharts-series apexcharts-radial-series" seriesName="TotalxSeats" rel="1" data:realIndex="0">
+                        <path id="SvgjsPath1480" d="M 88 20.61890243902438 A 67.38109756097562 67.38109756097562 0 1 1 23.91676808951466 108.82190424597779" fill="none" fill-opacity="0.85" stroke="url(#SvgjsLinearGradient1477)" stroke-opacity="1" stroke-linecap="round" stroke-width="4.981707317073171" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-0" data:angle="252"  index="0" j="0" data:pathOrig="M 88 20.61890243902438 A 67.38109756097562 67.38109756097562 0 1 1 23.91676808951466 108.82190424597779"></path>
+                     </g>
+                     <circle id="SvgjsCircle1472" r="55.88658536585366" cx="88" cy="88" class="apexcharts-radialbar-hollow" fill="#2c2c2c"></circle>
+                     <g id="SvgjsG1473" class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)" style="opacity: 1;">
+                        <text id="SvgjsText1474" font-family="Inter, sans-serif" x="88" y="110" text-anchor="middle" dominant-baseline="auto" font-size="16px" font-weight="bold" fill="#7c7c7c" class="apexcharts-text apexcharts-datalabel-label" style="font-family: Inter, sans-serif;">{{ pot.commentaire }}</text>
+                        <text id="SvgjsText1475" font-family="Inter, sans-serif" x="88" y="135" text-anchor="middle" dominant-baseline="auto" font-size="18px" font-weight="bold" fill="#ffffff" class="apexcharts-text apexcharts-datalabel-value" style="font-family: Inter, sans-serif;">{{ pot.totalCost }}</text>
+                     </g>
+                  </g>
+               </g>
+            </g>
+         </g>
+      </svg>
+   </div>
+</div>
